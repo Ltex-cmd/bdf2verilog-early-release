@@ -15,8 +15,9 @@ more useful than a full circuit. Include referenced components only when needed.
 Share only material you have permission to publish. Remove private paths,
 usernames, secrets and proprietary circuit details from inputs, logs and emitted
 HDL. No Quartus installation or vendor models are required for a useful report.
-For suspected vulnerabilities, keep details private. Security reporting setup is
-pending; do not post vulnerability details in public issues or pull requests.
+For suspected vulnerabilities, follow [SECURITY.md](SECURITY.md) and use the
+private reporting route. Do not post vulnerability details in public issues or
+pull requests.
 
 For a substantial feature or compatibility change, open an issue first to discuss
 the input construct, expected HDL and scope. Small fixes can go straight to a PR.

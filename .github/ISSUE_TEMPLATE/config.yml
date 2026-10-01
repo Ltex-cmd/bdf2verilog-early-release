@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/Ltex-cmd/bdf2verilog-early-release/security
+    about: Use Report a vulnerability on the Security page. Do not post vulnerability details in public issues.

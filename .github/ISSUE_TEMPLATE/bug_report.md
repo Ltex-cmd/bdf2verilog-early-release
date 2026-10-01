@@ -7,7 +7,7 @@ assignees: ''
 ---
 
 <!-- Public issue: remove private paths, usernames, secrets and proprietary circuit details.
-Security reporting setup is pending; do not post vulnerability details here. -->
+For suspected vulnerabilities, use SECURITY.md and private reporting; do not post details here. -->
 
 ## What happened?
 Expected behavior:
