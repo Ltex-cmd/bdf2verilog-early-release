@@ -1,7 +1,7 @@
 {
   "version": "0.1.0-early-release.1",
   "candidate_version": "0.1.0-early-release.1",
-  "commit": "0c5ce75f7bc9c80aa132f186c857740184f205b0",
+  "commit": "6079356f5eb3272de17c66d470d44ee6a0610122",
   "distribution_scope": "Clean public source tree; no private repository history",
   "files_sha256": {
     ".gitattributes": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
@@ -15,7 +15,7 @@
     "CONTRIBUTING.md": "12307b7a7cea559bcf973eb81d2f54efda9b79bf7d7e6a9fc624608799e64044",
     "LICENSE": "b9657fb423a47c743ca852f7316ec65f310937568b72265fe0ad34ef230c82da",
     "Makefile": "fd931c7f04d2b2cb7efa5e0dc393d6415a0c8d3bb6f90f3328c5dc63ebf991a9",
-    "README.md": "189df7fc55a27b7134f7151cf052e6c25ad0249148018d7bc115dc218cde715b",
+    "README.md": "836e44e1b9dfada1b5c4f8ed71fc26cd13a41cb38b0cb55eff488ee1427aafd7",
     "VERSION": "1d229711e78081291e44a7e7abd933db5614855f13571f395af33b00e12b56e4",
     "benchmarks/early-release/BENCHMARKS.md": "a9cb97541d596815b2c1a54c4852b27e5886b58ba8cefe7dfb78679820e84eca",
     "benchmarks/early-release/check_usage.py": "e5eaf909318bd411e11a24dbdb559b293515aa057d03e3c874b679be4368f04e",
