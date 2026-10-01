@@ -33,7 +33,9 @@ From the repository root, with CMake 3.16+, a C++17 toolchain and Python 3:
 ```sh
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release
-ctest --test-dir build -C Release --output-on-failure
+cd build
+ctest -C Release --output-on-failure
+cd ..
 python3 tools/verify_baseline.py
 ```
 
