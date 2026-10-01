@@ -1,9 +1,10 @@
 {
   "version": "0.1.0-early-release.1",
   "candidate_version": "0.1.0-early-release.1",
-  "commit": "11325412f56e0a7cd9d7d5fbbcd671a23eb313e8",
+  "commit": "de08c561e2d9c0d4fa8777f38a592e6363cdac1d",
   "distribution_scope": "Clean public source tree; no private repository history",
   "files_sha256": {
+    ".gitattributes": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
     ".github/workflows/build.yml": "cf69ff19088e01f878f2f784a886b68c01effa11b32306c9a81bc66ecbc358df",
     ".gitignore": "27c57e485f92659882f6403949ba4b31b7b6536e0561e14ac858e692332f5471",
     "CMakeLists.txt": "1b3afc7a5cf00c1d63b14a9f1d05bcf69e87c1d5e06aab59812cc81147067e7e",
@@ -47,7 +48,7 @@
     "tests/test_phase2.cpp": "55b17ca53493112a623f82c7452adfd04f241a1cb5ddcb472c09fbc7a5a0e4a4",
     "tests/test_span_parser.cpp": "b79adeae117ea1d53b8387cfb04bf5e8689d9460fae43c155f27457c5a0c9a86",
     "tools/benchmark_core.cpp": "4a4c02076746eb960b8c1bfd59734cf52357f7b8a419430c45b1e0c3debdad6c",
-    "tools/package-files.json": "830f6bb027ae33380dc5c9146278d01f1af0dc3aa92ffd1669f5dffc8d8ad379",
+    "tools/package-files.json": "49fd60016c8fa20fc3736b2208d9dcacee13bf74768132ca4dd7f30186f8beea",
     "tools/package_binary.py": "051cb6638c86fa31c09fc97db9291aeb27261a53ae0418d1014b8ff4e55da47f",
     "tools/package_source.py": "8a333f84d038cf4ea63a83bb06f68ecb3d1e57b95226dd5ce13e6dadfa531ce2",
     "tools/verify_baseline.py": "71433a9f1f20d219f3e7bd8ccdb32cc6a7d64670b72d9391472edee5f8836097"
