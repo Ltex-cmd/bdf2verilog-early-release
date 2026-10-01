@@ -18,7 +18,9 @@ The source needs a C++17 compiler and standard library. Use CMake 3.16 or newer 
 ```sh
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release
-ctest --test-dir build -C Release --output-on-failure
+cd build
+ctest -C Release --output-on-failure
+cd ..
 ```
 
 With the original Makefile on Linux or macOS:

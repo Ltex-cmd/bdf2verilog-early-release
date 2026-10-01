@@ -1,16 +1,23 @@
 {
   "version": "0.1.0-early-release.1",
   "candidate_version": "0.1.0-early-release.1",
-  "commit": "b1d47d1dc36ca740b11cba4a5c5b5730b9bcff1c",
+  "commit": "33c78977e9961fc43b0bdfe6b52cae019567ea7a",
   "distribution_scope": "Clean public source tree; no private repository history",
   "files_sha256": {
     ".gitattributes": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+    ".github/ISSUE_TEMPLATE/bug_report.md": "31c0b3bf95bd3fb2b3e809517d26c94046e2fed20a19204b411bfcbba47cd70a",
+    ".github/ISSUE_TEMPLATE/config.yml": "abb9c40900484e5b6b758f605637d9d5e78bdb992630a86f7dda0d16fc935792",
+    ".github/ISSUE_TEMPLATE/feature_request.md": "30adf972a6a8177bda9004f1f49130ab9371dc8fbf7793353b14df2fcc6b8fc2",
+    ".github/PULL_REQUEST_TEMPLATE.md": "5b6e49cb7bf67a4a529d87838a89f6f9688d85799be257ab1b96c752f43bcfbe",
     ".github/workflows/build.yml": "cf69ff19088e01f878f2f784a886b68c01effa11b32306c9a81bc66ecbc358df",
     ".gitignore": "27c57e485f92659882f6403949ba4b31b7b6536e0561e14ac858e692332f5471",
     "CMakeLists.txt": "1b3afc7a5cf00c1d63b14a9f1d05bcf69e87c1d5e06aab59812cc81147067e7e",
+    "CODE_OF_CONDUCT.md": "18b339a493fdf6d68bdaa2c1f7d021a0b81842cb1682c37d5d5baa9e00d1049b",
+    "CONTRIBUTING.md": "89ff8bef529522ed4b31fd12def23dbcd5e310f5e72f1e7290560e6cb2bb141e",
     "LICENSE": "b9657fb423a47c743ca852f7316ec65f310937568b72265fe0ad34ef230c82da",
     "Makefile": "fd931c7f04d2b2cb7efa5e0dc393d6415a0c8d3bb6f90f3328c5dc63ebf991a9",
-    "README.md": "189df7fc55a27b7134f7151cf052e6c25ad0249148018d7bc115dc218cde715b",
+    "README.md": "836e44e1b9dfada1b5c4f8ed71fc26cd13a41cb38b0cb55eff488ee1427aafd7",
+    "SECURITY.md": "fd931ce6acda5514f107e67d6295c0f518b04f068cacbdc605bdde07872eb9e3",
     "VERSION": "1d229711e78081291e44a7e7abd933db5614855f13571f395af33b00e12b56e4",
     "benchmarks/early-release/BENCHMARKS.md": "a9cb97541d596815b2c1a54c4852b27e5886b58ba8cefe7dfb78679820e84eca",
     "benchmarks/early-release/check_usage.py": "e5eaf909318bd411e11a24dbdb559b293515aa057d03e3c874b679be4368f04e",
@@ -48,7 +55,7 @@
     "tests/test_phase2.cpp": "55b17ca53493112a623f82c7452adfd04f241a1cb5ddcb472c09fbc7a5a0e4a4",
     "tests/test_span_parser.cpp": "b79adeae117ea1d53b8387cfb04bf5e8689d9460fae43c155f27457c5a0c9a86",
     "tools/benchmark_core.cpp": "4a4c02076746eb960b8c1bfd59734cf52357f7b8a419430c45b1e0c3debdad6c",
-    "tools/package-files.json": "49fd60016c8fa20fc3736b2208d9dcacee13bf74768132ca4dd7f30186f8beea",
+    "tools/package-files.json": "6f42747b3b0236d6f85bc9146e4322b47733f0ccb0aaa90a1dc340417b98e58d",
     "tools/package_binary.py": "051cb6638c86fa31c09fc97db9291aeb27261a53ae0418d1014b8ff4e55da47f",
     "tools/package_source.py": "6b2db233b746cad71c1ea2429aed3045d4d2b04d25e5a5c89cf704bf0ec47a5e",
     "tools/verify_baseline.py": "71433a9f1f20d219f3e7bd8ccdb32cc6a7d64670b72d9391472edee5f8836097"
@@ -106,5 +113,5 @@
     "tools/benchmark_core.cpp": "4a4c02076746eb960b8c1bfd59734cf52357f7b8a419430c45b1e0c3debdad6c"
   },
   "measurement_reference": "5e3cc48d38156194738912859cba03ff68564d98",
-  "hash_scope": "Every content file at the immutable initial public source commit; BASELINE.json is committed separately and excluded from self-hashing."
+  "hash_scope": "Every content file at the immutable public source commit; BASELINE.json is committed separately and excluded from self-hashing."
 }
