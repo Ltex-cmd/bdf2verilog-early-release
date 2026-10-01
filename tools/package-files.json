@@ -1,4 +1,7 @@
 [
+  ".github/workflows/build.yml",
+  ".gitignore",
+  "CMakeLists.txt",
   "LICENSE",
   "Makefile",
   "README.md",
@@ -40,5 +43,7 @@
   "tests/test_span_parser.cpp",
   "tools/benchmark_core.cpp",
   "tools/package-files.json",
+  "tools/package_binary.py",
+  "tools/package_source.py",
   "tools/verify_baseline.py"
 ]

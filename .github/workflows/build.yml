@@ -1,0 +1,67 @@
+name: Build and release
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify source manifest
+        run: python tools/verify_baseline.py
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build --config Release --parallel 2
+      - name: Test
+        run: ctest --test-dir build -C Release --output-on-failure
+      - name: Install
+        run: cmake --install build --config Release --prefix stage
+      - name: Package tested converter
+        run: python tools/package_binary.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: binary-${{ matrix.os }}
+          path: dist/*
+          if-no-files-found: error
+  release:
+    if: startsWith(github.ref, 'refs/tags/v') && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: binary-*
+          path: dist
+          merge-multiple: true
+      - name: Package verified source
+        run: python3 tools/package_source.py
+      - name: Publish prerelease after all native tests pass
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          test "$RELEASE_TAG" = "v$(cat VERSION)"
+          cat dist/SHA256SUMS-*.txt > dist/SHA256SUMS.txt
+          printf '%s\n' 'Experimental, vibecoded early release.' 'Native platform build and synthetic tests passed in this workflow. See README for supported input and limits.' 'No general HDL equivalence or Quartus speedup is claimed.' > release-notes.txt
+          gh release create "$RELEASE_TAG" dist/*.zip dist/SHA256SUMS.txt --verify-tag --prerelease --title "$(cat VERSION)" --notes-file release-notes.txt

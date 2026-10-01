@@ -13,7 +13,15 @@ Version `0.1.0-early-release.1` is an experimental early release. Compatibility 
 
 ## Build and run
 
-The tested build uses GCC or Clang with a C++17 standard library and Make. Python 3 is needed for the source-manifest check and optional benchmark scripts. The converter itself needs no Python or Quartus runtime. Build from the repository root:
+The source needs a C++17 compiler and standard library. Use CMake 3.16 or newer for the cross-platform build, or GCC/Clang and Make for the original build. Python 3 is needed for the source-manifest check and optional benchmark scripts. The converter itself needs no Python or Quartus runtime. Build from the repository root:
+
+```sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --config Release
+ctest --test-dir build -C Release --output-on-failure
+```
+
+With the original Makefile on Linux or macOS:
 
 ```sh
 make all
@@ -34,7 +42,7 @@ Each `--library` adds a directory for referenced BDF components. Keep ROM initia
 
 The synthetic example contains two BUF blocks connected between input `A` and output `Y`. Its output has a `minimal` module and connects `Y` to `A`. No device project or synthesis step is required.
 
-There is no installer. To put the executable in a directory you control, copy `build/bdf-tool` there. The production source and default synthetic test suite passed on macOS arm64 with Apple Clang 21 and Linux x86-64 with GCC 14.2. GCC reported warnings documented in the benchmark report. Windows and MSVC have not been validated for this candidate. C++17 filesystem support and standard-library behavior still depend on your compiler.
+Binary archives from [Releases](https://github.com/Ltex-cmd/bdf2verilog-early-release/releases) contain the standalone converter in `bin`. Extract one for your platform and verify its SHA-256. Binaries require a compatible OS and C++ runtime; build from source when those do not match. Source builds can use `cmake --install build --config Release --prefix stage`. On a multi-configuration build, such as Visual Studio, the executable is `build/Release/bdf-tool.exe`. The production source and default synthetic test suite passed on macOS arm64 with Apple Clang 21 and Linux x86-64 with GCC 14.2. GCC reported warnings documented in the benchmark report. Windows and MSVC have not been validated for this candidate. C++17 filesystem support and standard-library behavior still depend on your compiler.
 
 Without Make, GCC and Clang can build the standalone converter directly:
 
@@ -94,3 +102,7 @@ To check a source archive, run `python3 tools/verify_baseline.py`. Reproduction 
 This source package contains the converter and synthetic tests. It ships no Quartus/Altera source files, vendor binaries, models, decompiler output or vendor-DLL test host.
 
 [MIT](LICENSE) applies to project-owned material. It grants no rights to vendor software or input circuits. The release remains experimental and comes without a quality or correctness guarantee.
+
+## Automated builds
+
+The main branch and pull requests run native CMake build/tests on Linux, macOS and Windows. The tag workflow publishes an experimental prerelease only after all three jobs pass. The source package, tested converter archives and SHA256SUMS.txt are attached together. No Quartus installation or personal access token is needed to build the converter.
