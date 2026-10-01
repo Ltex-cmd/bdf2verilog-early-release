@@ -3,10 +3,11 @@
 import hashlib
 import json
 import subprocess
+import sys
 import zipfile
 from pathlib import Path
 
-subprocess.run(["python3", "tools/verify_baseline.py"], check=True)
+subprocess.run([sys.executable, "tools/verify_baseline.py"], check=True)
 version = Path("VERSION").read_text().strip()
 files = json.loads(Path("tools/package-files.json").read_text()) + ["BASELINE.json"]
 root = f"bdf2verilog-{version}"
