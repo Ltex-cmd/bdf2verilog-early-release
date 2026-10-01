@@ -1,4 +1,5 @@
 [
+  ".gitattributes",
   ".github/workflows/build.yml",
   ".gitignore",
   "CMakeLists.txt",
