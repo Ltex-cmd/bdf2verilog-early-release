@@ -1,0 +1,8 @@
+(header "graphic" (version "1.4"))
+(symbol (rect 0 0 40 16) (text "BUF") (text "first")
+(port (input) (pt 0 8) (text "IN")) (port (output) (pt 40 8) (text "OUT")))
+(symbol (rect 80 0 120 16) (text "BUF") (text "second")
+(port (input) (pt 0 8) (text "IN")) (port (output) (pt 40 8) (text "OUT")))
+(connector (pt 40 8) (pt 80 8))
+(pin (input) (rect 0 0 168 16) (text "INPUT") (text "A") (pt 0 8))
+(pin (output) (rect 120 0 288 16) (text "OUTPUT") (text "Y") (pt 0 8))

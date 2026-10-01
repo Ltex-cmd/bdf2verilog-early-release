@@ -1,0 +1,164 @@
+mkdir -p build
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/schematic.cpp src/signal_name.cpp src/lpm.cpp src/verilog.cpp src/project.cpp src/bdf_tape.cpp src/bdf_span.cpp src/project_context.cpp src/main.cpp -o build/bdf-tool
+src/schematic.cpp: In function ‘bdf::Point bdf::{anonymous}::absolute_point(const bdf::Node&)’:
+src/schematic.cpp:32:17: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   32 |     const auto& rect = required_child(node, "rect");
+      |                 ^~~~
+src/schematic.cpp:32:38: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   32 |     const auto& rect = required_child(node, "rect");
+      |                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+src/schematic.cpp: In function ‘bdf::Schematic bdf::decode(const Document&)’:
+src/schematic.cpp:92:25: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   92 |             const auto& rect = required_child(node, "rect");
+      |                         ^~~~
+src/schematic.cpp:92:46: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   92 |             const auto& rect = required_child(node, "rect");
+      |                                ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/schematic.cpp src/signal_name.cpp src/lpm.cpp src/verilog.cpp src/project.cpp src/bdf_tape.cpp src/bdf_span.cpp src/project_context.cpp tools/benchmark_core.cpp -o build/benchmark-core
+src/schematic.cpp: In function ‘bdf::Point bdf::{anonymous}::absolute_point(const bdf::Node&)’:
+src/schematic.cpp:32:17: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   32 |     const auto& rect = required_child(node, "rect");
+      |                 ^~~~
+src/schematic.cpp:32:38: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   32 |     const auto& rect = required_child(node, "rect");
+      |                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+src/schematic.cpp: In function ‘bdf::Schematic bdf::decode(const Document&)’:
+src/schematic.cpp:92:25: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   92 |             const auto& rect = required_child(node, "rect");
+      |                         ^~~~
+src/schematic.cpp:92:46: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   92 |             const auto& rect = required_child(node, "rect");
+      |                                ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/schematic.cpp src/signal_name.cpp src/lpm.cpp src/verilog.cpp src/project.cpp src/bdf_tape.cpp src/bdf_span.cpp src/project_context.cpp tests/test_parser.cpp -o build/test-parser
+src/schematic.cpp: In function ‘bdf::Point bdf::{anonymous}::absolute_point(const bdf::Node&)’:
+src/schematic.cpp:32:17: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   32 |     const auto& rect = required_child(node, "rect");
+      |                 ^~~~
+src/schematic.cpp:32:38: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   32 |     const auto& rect = required_child(node, "rect");
+      |                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+src/schematic.cpp: In function ‘bdf::Schematic bdf::decode(const Document&)’:
+src/schematic.cpp:92:25: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   92 |             const auto& rect = required_child(node, "rect");
+      |                         ^~~~
+src/schematic.cpp:92:46: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   92 |             const auto& rect = required_child(node, "rect");
+      |                                ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/schematic.cpp src/signal_name.cpp src/lpm.cpp src/verilog.cpp src/project.cpp src/bdf_tape.cpp src/bdf_span.cpp src/project_context.cpp tests/test_phase2.cpp -o build/test-phase2
+src/schematic.cpp: In function ‘bdf::Point bdf::{anonymous}::absolute_point(const bdf::Node&)’:
+src/schematic.cpp:32:17: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   32 |     const auto& rect = required_child(node, "rect");
+      |                 ^~~~
+src/schematic.cpp:32:38: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   32 |     const auto& rect = required_child(node, "rect");
+      |                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+src/schematic.cpp: In function ‘bdf::Schematic bdf::decode(const Document&)’:
+src/schematic.cpp:92:25: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   92 |             const auto& rect = required_child(node, "rect");
+      |                         ^~~~
+src/schematic.cpp:92:46: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   92 |             const auto& rect = required_child(node, "rect");
+      |                                ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/schematic.cpp src/signal_name.cpp src/lpm.cpp src/verilog.cpp src/project.cpp src/bdf_tape.cpp src/bdf_span.cpp src/project_context.cpp tests/allocation_order.cpp -o build/test-allocation
+src/schematic.cpp: In function ‘bdf::Point bdf::{anonymous}::absolute_point(const bdf::Node&)’:
+src/schematic.cpp:32:17: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   32 |     const auto& rect = required_child(node, "rect");
+      |                 ^~~~
+src/schematic.cpp:32:38: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   32 |     const auto& rect = required_child(node, "rect");
+      |                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+src/schematic.cpp: In function ‘bdf::Schematic bdf::decode(const Document&)’:
+src/schematic.cpp:92:25: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   92 |             const auto& rect = required_child(node, "rect");
+      |                         ^~~~
+src/schematic.cpp:92:46: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   92 |             const auto& rect = required_child(node, "rect");
+      |                                ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/bdf_tape.cpp tests/test_coordinate_numbers.cpp -o build/test-coordinate-numbers
+./build/test-coordinate-numbers
+26 coordinate acceptance/value/diagnostic checks passed
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/schematic.cpp src/signal_name.cpp src/lpm.cpp src/verilog.cpp src/project.cpp src/bdf_tape.cpp src/bdf_span.cpp src/project_context.cpp tests/test_name_scope.cpp -o build/test-name-scope
+src/schematic.cpp: In function ‘bdf::Point bdf::{anonymous}::absolute_point(const bdf::Node&)’:
+src/schematic.cpp:32:17: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   32 |     const auto& rect = required_child(node, "rect");
+      |                 ^~~~
+src/schematic.cpp:32:38: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   32 |     const auto& rect = required_child(node, "rect");
+      |                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+src/schematic.cpp: In function ‘bdf::Schematic bdf::decode(const Document&)’:
+src/schematic.cpp:92:25: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   92 |             const auto& rect = required_child(node, "rect");
+      |                         ^~~~
+src/schematic.cpp:92:46: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   92 |             const auto& rect = required_child(node, "rect");
+      |                                ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/schematic.cpp src/bdf_tape.cpp src/bdf_span.cpp tests/test_span_parser.cpp -o build/test-span-parser
+src/schematic.cpp: In function ‘bdf::Point bdf::{anonymous}::absolute_point(const bdf::Node&)’:
+src/schematic.cpp:32:17: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   32 |     const auto& rect = required_child(node, "rect");
+      |                 ^~~~
+src/schematic.cpp:32:38: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   32 |     const auto& rect = required_child(node, "rect");
+      |                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+src/schematic.cpp: In function ‘bdf::Schematic bdf::decode(const Document&)’:
+src/schematic.cpp:92:25: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   92 |             const auto& rect = required_child(node, "rect");
+      |                         ^~~~
+src/schematic.cpp:92:46: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   92 |             const auto& rect = required_child(node, "rect");
+      |                                ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+tests/test_span_parser.cpp: In function ‘bool tape_equal(const std::string&)’:
+tests/test_span_parser.cpp:12:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   12 |  if(ae!=be)return false;if(!ae.empty())return true;
+      |  ^~
+tests/test_span_parser.cpp:12:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   12 |  if(ae!=be)return false;if(!ae.empty())return true;
+      |                         ^~
+./build/test-span-parser
+threshold_cases 48
+{"byte_cases":3123,"edge_cases":16,"files":0,"mutations":0,"mismatch":0,"full_nodes":0,"selective_nodes":0,"full_capacity":0,"selective_capacity":0}
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/schematic.cpp src/signal_name.cpp src/lpm.cpp src/verilog.cpp src/project.cpp src/bdf_tape.cpp src/bdf_span.cpp src/project_context.cpp tests/test_net_checks.cpp -o build/test-net-checks
+src/schematic.cpp: In function ‘bdf::Point bdf::{anonymous}::absolute_point(const bdf::Node&)’:
+src/schematic.cpp:32:17: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   32 |     const auto& rect = required_child(node, "rect");
+      |                 ^~~~
+src/schematic.cpp:32:38: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   32 |     const auto& rect = required_child(node, "rect");
+      |                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+src/schematic.cpp: In function ‘bdf::Schematic bdf::decode(const Document&)’:
+src/schematic.cpp:92:25: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   92 |             const auto& rect = required_child(node, "rect");
+      |                         ^~~~
+src/schematic.cpp:92:46: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   92 |             const auto& rect = required_child(node, "rect");
+      |                                ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+./build/test-net-checks
+11 synthetic net checks passed: aliases, diagnostic order, undriven inputs, feedback and vector lanes
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE src/parser.cpp src/schematic.cpp src/signal_name.cpp src/lpm.cpp src/verilog.cpp src/project.cpp src/bdf_tape.cpp src/bdf_span.cpp src/project_context.cpp tests/test_bus_contacts.cpp -o build/test-bus-contacts
+src/schematic.cpp: In function ‘bdf::Point bdf::{anonymous}::absolute_point(const bdf::Node&)’:
+src/schematic.cpp:32:17: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   32 |     const auto& rect = required_child(node, "rect");
+      |                 ^~~~
+src/schematic.cpp:32:38: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   32 |     const auto& rect = required_child(node, "rect");
+      |                        ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+src/schematic.cpp: In function ‘bdf::Schematic bdf::decode(const Document&)’:
+src/schematic.cpp:92:25: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   92 |             const auto& rect = required_child(node, "rect");
+      |                         ^~~~
+src/schematic.cpp:92:46: note: the temporary was destroyed at the end of the full expression ‘bdf::required_child((* & node), std::__cxx11::basic_string<char>(((const char*)"rect"), std::allocator<char>()))’
+   92 |             const auto& rect = required_child(node, "rect");
+      |                                ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+./build/test-bus-contacts
+Bus contact checks passed: geometry, labels, diagnostic order, dense row, 2000-instance hierarchy.
+./build/test-parser
+Parser checks passed
+./build/test-phase2
+Tape: 0 corpus files, 19 lexical/decoder cases, 4000 seeded malformed inputs.
+Context: cache reuse, transitive/content invalidation, unaffected parents, additions/removals, module keys, live mode, failed-refresh recovery passed.
+./build/test-allocation tests/minimal.bdf build/allocation-minimal
+48 allocations, distinct HDL outputs=1
+./build/test-allocation tests/minimal.bdf build/allocation-minimal-repeat
+48 allocations, distinct HDL outputs=1
+./build/test-name-scope
+Compatibility checks passed: sibling port isolation; case-folded source/library priority; memory-path deletion/recovery.

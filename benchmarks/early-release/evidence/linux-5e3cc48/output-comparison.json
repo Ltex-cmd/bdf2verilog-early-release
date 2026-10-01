@@ -1,0 +1,79 @@
+{
+  "before_commit": "e8ce90981aaf26849aaae2540126c97676344541",
+  "after_commit": "5e3cc48d38156194738912859cba03ff68564d98",
+  "scope": "byte-for-byte generated HDL output comparison, not general semantic proof or timed performance comparison",
+  "cases": [
+    {
+      "case": "flat_128",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "77cef0ef09c4bd6b31deb0d0dae221cd9496c8073515b99b93165f040cd19a62"
+    },
+    {
+      "case": "flat_512",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "ae49d51feb08b7bd0da261c9f29c67a3b969b374c206dd2a61b710803cea13b1"
+    },
+    {
+      "case": "flat_2048",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "cf960f956990914b675f6f9cb3fdb59e28cd68ef99c78f59d1abd5bf15a26a0f"
+    },
+    {
+      "case": "hierarchy_16",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "9cd3d3015e6c3333d73c1e18866fd265fe846e9e466da4a7804b215b65052270"
+    },
+    {
+      "case": "hierarchy_64",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "c9bb97d4bf2b5cfbf60b2f1ed3468709deb0dbe5108352655a0277d8845a2bd2"
+    },
+    {
+      "case": "hierarchy_256",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "44a18e812bf2e9cde923c59beffb5e0dbb97e98e5de4713de9d63647c68f1ef1"
+    },
+    {
+      "case": "bus_contacts_64",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "c53e590ffe02f7bf9605e4ce6e51c6a8d3e8ea2f628781f092be2c5f4a7e2c07"
+    },
+    {
+      "case": "dense_early_hit_64",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "7e612e59a1dcb5532ac227dcbe95292036e8dbe2df188f4fa4b66228c797e3c7"
+    },
+    {
+      "case": "bus_contacts_256",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "d03c1a9156a47c370e9931f1afca518923dee9a783112e839236acf151c54f38"
+    },
+    {
+      "case": "dense_early_hit_256",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "654a7ca39abf5b96207a6baa74e64435dbe5be3fb8e994b38d55d1a68e8ab743"
+    },
+    {
+      "case": "bus_contacts_1024",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "5e06a97c68793e3077f6e9866f902a52ed3a2e2ec34ea2d40521a69b524411da"
+    },
+    {
+      "case": "dense_early_hit_1024",
+      "same_fixture_hashes": true,
+      "identical_output": true,
+      "output_sha256": "987f0b6b6eb313f4f49880b8370c397e1023eca1cb87fa166cb6afa69484d009"
+    }
+  ]
+}

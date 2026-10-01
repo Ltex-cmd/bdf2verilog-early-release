@@ -1,0 +1,106 @@
+bdf2verilog alpha Linux validation and benchmark report
+
+Production source: 5e3cc48d38156194738912859cba03ff68564d98
+Measurement UTC: 2026-10-01T01:22:47.083143+00:00
+
+The clean Linux build and the complete repository Makefile test target passed.
+Twelve original synthetic benchmark cases converted successfully and produced
+repeated byte-identical output. Their output also matches the immediately preceding
+e8ce909 source snapshot. These results support review of the alpha source package;
+publication and licensing are separate owner decisions.
+
+Platform
+Linux-6.18.44-x86_64-with-glibc2.41
+AMD EPYC 9V74 80-Core Processor
+c++ (Debian 14.2.0-19) 14.2.0
+Python 3.12.14
+Build: make -j1 all test
+Compiler flags: -std=c++17 -O2 -Wall -Wextra -Wpedantic -Iinclude -DBDF_CONTEXT_TAPE
+
+Validation performed
+- Parser tests; 26 coordinate acceptance/value/diagnostic checks
+- 48 span thresholds, 3123 byte cases and 16 parser edge cases; zero mismatches
+- 19 lexical/decoder cases and 4000 seeded malformed inputs
+- Context cache/invalidation/recovery and name-scope compatibility checks
+- Two allocation-order runs, each with one distinct HDL output
+- Bus geometry/labels/diagnostic order, dense rows and 2000-instance hierarchy
+- 11 synthetic net checks: aliases, diagnostics, undriven inputs, feedback, vector lanes
+- 17 separate CLI, existing benchmark-driver and emitted-identity checks
+- 12 generated fixture outputs identical to e8ce909; no performance ratio inferred
+
+Existing compiler warnings
+GCC 14.2 reports -Wdangling-reference at schematic.cpp lines 32 and 92.
+Inspection shows required_child returns a child of the input node, not the
+temporary tag string; these appear to be false positives. This is not a
+warning-clean build. test_span_parser.cpp line 12 also has a misleading-indentation
+warning. No production source was changed for this validation.
+
+Fresh conversion timings in milliseconds
+Case                       Median        Min        Max
+flat_128                       0.0555     0.0540     0.0621
+flat_512                       0.2362     0.2181     0.2569
+flat_2048                      0.9339     0.9106     1.0639
+hierarchy_16                   0.1435     0.1302     0.1519
+hierarchy_64                   0.5033     0.4735     0.5402
+hierarchy_256                  1.6949     1.6491     1.7846
+bus_contacts_64                0.0646     0.0578     0.0732
+dense_early_hit_64             0.2154     0.1907     0.2726
+bus_contacts_256               0.1827     0.1526     0.2162
+dense_early_hit_256            1.0006     0.9236     1.2525
+bus_contacts_1024              0.5376     0.4935     0.5789
+dense_early_hit_1024           5.8923     5.7253     6.7191
+
+Startup inclusive CLI timings in milliseconds
+Case                       Median        Min        Max
+flat_128                       1.5546     1.4644     2.5115
+flat_512                       1.8391     1.7233     2.0699
+flat_2048                      2.9587     2.7119     3.3202
+hierarchy_16                   1.8170     1.5820     1.9711
+hierarchy_64                   2.3234     2.1201     2.5589
+hierarchy_256                  4.4420     4.0731     6.4822
+bus_contacts_64                1.7254     1.4249     3.4777
+dense_early_hit_64             1.9797     1.7210     2.2780
+bus_contacts_256               1.8065     1.7605     2.0063
+dense_early_hit_256            2.7015     2.5054     3.5110
+bus_contacts_1024              2.5105     2.2622     3.2329
+dense_early_hit_1024           8.7634     8.3402    10.1686
+
+Method and scope
+Serial execution. Seven raw samples per case and mode. Fresh measurements use
+new contexts, including source reads, parsing, hierarchy, connectivity, validation,
+rendering and destruction. Two warmups per launch; calibrated batches target
+40 ms with at most 1000 repetitions. Samples are per-conversion batch averages.
+CLI timings include process launch and captured stdout plus Python subprocess
+overhead, with two warmups and seven single-conversion trials. No output writes
+are timed. The OS file cache is warm; retained converter contexts are not used.
+
+No Quartus runs, synthesis, retained-cache benchmarks, cold-cache runs, hardware
+resource estimates, or cross-platform performance tests were performed here.
+The earlier native Quartus comparison is not part of these results. No speedup
+over Quartus, another revision, or universal algorithmic bound is claimed.
+The dense early-hit family uses scalar terminals on single-bit labeled buses;
+wide vector terminals bypass contact classification and would miss that path.
+
+Correctness limits
+The Makefile run used repository synthetic tests; external corpus counts are zero.
+The identity checks inspect literal generated assignments. They are not general
+HDL equivalence proofs. Independent four-state identity testbenches are generated
+for all cases, but were not simulated here because no HDL simulator is installed.
+Broader vendor/LPM, sequential and external-corpus validation belongs in separate
+evidence. Linux results do not establish macOS or Windows support.
+
+Reproduce and integrate
+Copy benchmarks/alpha into the checkout; no existing files need to be overwritten.
+Read benchmarks/alpha/BENCHMARKS.md for exact commands and simulator checks.
+Use the full commit above for this source. Raw samples, hashes, test log and
+separate validation records are in benchmarks/alpha/evidence/linux-5e3cc48.
+New timings from another host must retain that host platform/compiler metadata.
+If only documentation changes, compare all validation_inputs_sha256 values in
+source-identity.json before reusing this build/test evidence.
+
+Provenance and contents
+The generators, harness, documentation and synthetic identity oracles were authored
+for this task. No user circuit corpus, third-party circuit source, vendor binaries,
+models, repository history, personal paths, credentials or compiled programs are
+included. The archive contains only explicitly selected source and text evidence.
+No release license is assigned by this benchmark package.

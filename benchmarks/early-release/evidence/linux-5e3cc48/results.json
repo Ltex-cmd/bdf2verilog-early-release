@@ -1,0 +1,1130 @@
+{
+  "schema": 1,
+  "utc": "2026-10-01T01:22:47.083143+00:00",
+  "commit": "5e3cc48d38156194738912859cba03ff68564d98",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "python": "3.12.14",
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "flags": [
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-DBDF_CONTEXT_TAPE"
+  ],
+  "compile_command": "$CXX -std=c++17 -O2 -Wall -Wextra -Wpedantic -DBDF_CONTEXT_TAPE -I$SOURCE/include $SOURCE/src/parser.cpp $SOURCE/src/schematic.cpp $SOURCE/src/signal_name.cpp $SOURCE/src/lpm.cpp $SOURCE/src/verilog.cpp $SOURCE/src/project.cpp $SOURCE/src/bdf_tape.cpp $SOURCE/src/bdf_span.cpp $SOURCE/src/project_context.cpp $HARNESS/measure.cpp -o $OUTPUT/alpha-measure",
+  "reproduce_command": "python3 benchmarks/alpha/run.py --source-root . --commit 5e3cc48d38156194738912859cba03ff68564d98 --output alpha-results",
+  "source_sha256": {
+    "src/parser.cpp": "c2e09953e8ab8e022710cc15c6c659a2cb8f72a2acdeb408621fdb4a658831c6",
+    "src/schematic.cpp": "97a07ad7db2a213bddaf94eae404b77da24f73e8d1b9317352cbbdc9a1b626c0",
+    "src/signal_name.cpp": "269961c9166005b8fc277ab4f8e1a90c0bb53f8142c7b15d13af57a580a2e3b0",
+    "src/lpm.cpp": "669706b8199d43690e577d2a62d099f4e53b624c4ef87efed756a86f56618314",
+    "src/verilog.cpp": "da1eb16cd21bace9a699cbfe41763fa24cfcbf62f09ad8d8354aa34e7e1e8d7a",
+    "src/project.cpp": "bb0e1885101beb5a67b1191e806396b78b6d5632be3243817881c88c6337f525",
+    "src/bdf_tape.cpp": "ae2ee60e5d661f1c3921493818054625de5772087ae3a80cdbb899ac05c6daea",
+    "src/bdf_span.cpp": "e361b00a4f74f1adc3b335af17a986c957fe5997d67fa41b83b9a2575b26333c",
+    "src/project_context.cpp": "921a5046e7527650c02c1d11fcbc039cf86bb8196cceece26e1c03f73ccfe021",
+    "include/bdf.hpp": "65c0c8688bf69b614645e6f5962b3df5fed76888201a3dc7251424f49676f81d",
+    "include/bdf_tape.hpp": "4f42b478edea5498d4ef1e09f6f1764d80da2259690cadc5fcfc400edbd8992c",
+    "include/project_context.hpp": "b6481f668733db486d13cb6696e71503bf0d579fa4b0edda5d76dc66ed12dfeb"
+  },
+  "harness_sha256": {
+    "BENCHMARKS.md": "1b527ec1d2f748dd3d4549c77b5cf30fb3c77b984a54d2d8bcdc73a00327d8d5",
+    "check_usage.py": "e5eaf909318bd411e11a24dbdb559b293515aa057d03e3c874b679be4368f04e",
+    "generate.py": "634bd351137a3df5d3042a46d578ced3b6abcb00866160810323350a43bc1e6f",
+    "measure.cpp": "cae0b0d211347b78874f5f2bdaf00c4bc874cffb89c8654912fda5d203c95c59",
+    "run.py": "481842f1033a77110100ffe2dfc38c647f9b152c6dc1736af45136069b959e95"
+  },
+  "binary_sha256": {
+    "converter": "d7cd06d7383e5a4b2c87316e0b87827c8500bad5423cda24ce2c2eb943fb21ba",
+    "measure": "a966100b2fbfb3c6819d0cf1b1c84cb382a175cc1f17e064a3373751863168c5"
+  },
+  "method": {
+    "serial": true,
+    "trials": 7,
+    "warmups_per_fresh_launch": 2,
+    "warmups_cli": 2,
+    "target_batch_seconds": 0.04,
+    "max_repetitions": 1000,
+    "fresh_timed": "public emit_verilog_project: new context, file read, parse, resolve, validate, emit, destruction; no process startup or output file write",
+    "cli_timed": "new process, full conversion, stdout captured in pipe; no disk output; Python subprocess overhead included",
+    "cache": "No retained converter context; OS filesystem cache warm. No cold-cache claim.",
+    "comparison": "Current revision only; no baseline or Quartus speedup claim."
+  },
+  "cases": [
+    {
+      "name": "flat_128",
+      "family": "flat_scalar_chain",
+      "size": 128,
+      "top": "flat_128/flat_128.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "flat_128/flat_128.bdf": "81433723a03df55fe0a63dab97f55bc2271600eda04032660168da9dbbabe924"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "77cef0ef09c4bd6b31deb0d0dae221cd9496c8073515b99b93165f040cd19a62",
+        "output_bytes": 106,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          5.875100519031142e-05,
+          5.469365743944637e-05,
+          6.205951384083045e-05,
+          6.133592041522492e-05,
+          5.55260830449827e-05,
+          5.400679757785467e-05,
+          5.498097404844291e-05
+        ],
+        "median_seconds": 5.55260830449827e-05,
+        "min_seconds": 5.400679757785467e-05,
+        "max_seconds": 6.205951384083045e-05,
+        "raw_batches": [
+          {
+            "seconds": 0.033958081,
+            "repetitions": 578,
+            "output_bytes": 106,
+            "consumed": 61480
+          },
+          {
+            "seconds": 0.031612934,
+            "repetitions": 578,
+            "output_bytes": 106,
+            "consumed": 61480
+          },
+          {
+            "seconds": 0.035870399,
+            "repetitions": 578,
+            "output_bytes": 106,
+            "consumed": 61480
+          },
+          {
+            "seconds": 0.035452162,
+            "repetitions": 578,
+            "output_bytes": 106,
+            "consumed": 61480
+          },
+          {
+            "seconds": 0.032094076,
+            "repetitions": 578,
+            "output_bytes": 106,
+            "consumed": 61480
+          },
+          {
+            "seconds": 0.031215929,
+            "repetitions": 578,
+            "output_bytes": 106,
+            "consumed": 61480
+          },
+          {
+            "seconds": 0.031779003,
+            "repetitions": 578,
+            "output_bytes": 106,
+            "consumed": 61480
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.0015476000007765833,
+          0.0016454069991596043,
+          0.0014918069973646197,
+          0.0025115259995800443,
+          0.0014644050024799071,
+          0.001927389999764273,
+          0.0015545809983450454
+        ],
+        "median_seconds": 0.0015545809983450454,
+        "min_seconds": 0.0014644050024799071,
+        "max_seconds": 0.0025115259995800443
+      }
+    },
+    {
+      "name": "flat_512",
+      "family": "flat_scalar_chain",
+      "size": 512,
+      "top": "flat_512/flat_512.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "flat_512/flat_512.bdf": "529c0d0dd5483fa4a2acd26b7bd71eda731514e042c44046a0b757d896e9f014"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "ae49d51feb08b7bd0da261c9f29c67a3b969b374c206dd2a61b710803cea13b1",
+        "output_bytes": 106,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.0002375699294871795,
+          0.00024139357692307692,
+          0.00022257587179487178,
+          0.00023623346794871797,
+          0.00021989993589743587,
+          0.0002569084423076923,
+          0.0002180718782051282
+        ],
+        "median_seconds": 0.00023623346794871797,
+        "min_seconds": 0.0002180718782051282,
+        "max_seconds": 0.0002569084423076923,
+        "raw_batches": [
+          {
+            "seconds": 0.037060909,
+            "repetitions": 156,
+            "output_bytes": 106,
+            "consumed": 16748
+          },
+          {
+            "seconds": 0.037657398,
+            "repetitions": 156,
+            "output_bytes": 106,
+            "consumed": 16748
+          },
+          {
+            "seconds": 0.034721836,
+            "repetitions": 156,
+            "output_bytes": 106,
+            "consumed": 16748
+          },
+          {
+            "seconds": 0.036852421,
+            "repetitions": 156,
+            "output_bytes": 106,
+            "consumed": 16748
+          },
+          {
+            "seconds": 0.03430439,
+            "repetitions": 156,
+            "output_bytes": 106,
+            "consumed": 16748
+          },
+          {
+            "seconds": 0.040077717,
+            "repetitions": 156,
+            "output_bytes": 106,
+            "consumed": 16748
+          },
+          {
+            "seconds": 0.034019213,
+            "repetitions": 156,
+            "output_bytes": 106,
+            "consumed": 16748
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.001839112002926413,
+          0.0017962290003197268,
+          0.0020698539992736187,
+          0.0020698090011137538,
+          0.001784586002031574,
+          0.0018670600002224091,
+          0.0017232840000360738
+        ],
+        "median_seconds": 0.001839112002926413,
+        "min_seconds": 0.0017232840000360738,
+        "max_seconds": 0.0020698539992736187
+      }
+    },
+    {
+      "name": "flat_2048",
+      "family": "flat_scalar_chain",
+      "size": 2048,
+      "top": "flat_2048/flat_2048.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "flat_2048/flat_2048.bdf": "36f4208ced3cba610e417cf121b5f733df6ebf1cc8ded5b89e378f3685b602e1"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "cf960f956990914b675f6f9cb3fdb59e28cd68ef99c78f59d1abd5bf15a26a0f",
+        "output_bytes": 107,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.0009338920476190476,
+          0.0009134249523809523,
+          0.0009136846190476189,
+          0.001063856,
+          0.0009909535714285715,
+          0.0009364580476190475,
+          0.0009106314523809523
+        ],
+        "median_seconds": 0.0009338920476190476,
+        "min_seconds": 0.0009106314523809523,
+        "max_seconds": 0.001063856,
+        "raw_batches": [
+          {
+            "seconds": 0.039223466,
+            "repetitions": 42,
+            "output_bytes": 107,
+            "consumed": 4708
+          },
+          {
+            "seconds": 0.038363848,
+            "repetitions": 42,
+            "output_bytes": 107,
+            "consumed": 4708
+          },
+          {
+            "seconds": 0.038374754,
+            "repetitions": 42,
+            "output_bytes": 107,
+            "consumed": 4708
+          },
+          {
+            "seconds": 0.044681952,
+            "repetitions": 42,
+            "output_bytes": 107,
+            "consumed": 4708
+          },
+          {
+            "seconds": 0.04162005,
+            "repetitions": 42,
+            "output_bytes": 107,
+            "consumed": 4708
+          },
+          {
+            "seconds": 0.039331238,
+            "repetitions": 42,
+            "output_bytes": 107,
+            "consumed": 4708
+          },
+          {
+            "seconds": 0.038246521,
+            "repetitions": 42,
+            "output_bytes": 107,
+            "consumed": 4708
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.0031140899991441984,
+          0.0030192470003385097,
+          0.00271194699962507,
+          0.0029586669988930225,
+          0.0033202179984073155,
+          0.002892377000534907,
+          0.0029568739992100745
+        ],
+        "median_seconds": 0.0029586669988930225,
+        "min_seconds": 0.00271194699962507,
+        "max_seconds": 0.0033202179984073155
+      }
+    },
+    {
+      "name": "hierarchy_16",
+      "family": "hierarchy_repeated_leaf",
+      "size": 16,
+      "top": "hierarchy_16/hierarchy_16.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "hierarchy_16/hierarchy_16.bdf": "d88c4fa226962c4fe2c8ef0024eed782942cb95b3069b280bd04404e5ebbc2a4",
+        "hierarchy_16/leaf.bdf": "7d4a5e0c27c78f83fdd5e520e0df0ed5a1f2716700d3c6a97d620af74722bfa6"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "9cd3d3015e6c3333d73c1e18866fd265fe846e9e466da4a7804b215b65052270",
+        "output_bytes": 1550,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.00015186247148288973,
+          0.00013530943726235741,
+          0.00014352666539923955,
+          0.00013019287072243345,
+          0.00013750653612167298,
+          0.0001518927452471483,
+          0.00014758034980988594
+        ],
+        "median_seconds": 0.00014352666539923955,
+        "min_seconds": 0.00013019287072243345,
+        "max_seconds": 0.0001518927452471483,
+        "raw_batches": [
+          {
+            "seconds": 0.03993983,
+            "repetitions": 263,
+            "output_bytes": 1550,
+            "consumed": 410750
+          },
+          {
+            "seconds": 0.035586382,
+            "repetitions": 263,
+            "output_bytes": 1550,
+            "consumed": 410750
+          },
+          {
+            "seconds": 0.037747513,
+            "repetitions": 263,
+            "output_bytes": 1550,
+            "consumed": 410750
+          },
+          {
+            "seconds": 0.034240725,
+            "repetitions": 263,
+            "output_bytes": 1550,
+            "consumed": 410750
+          },
+          {
+            "seconds": 0.036164219,
+            "repetitions": 263,
+            "output_bytes": 1550,
+            "consumed": 410750
+          },
+          {
+            "seconds": 0.039947792,
+            "repetitions": 263,
+            "output_bytes": 1550,
+            "consumed": 410750
+          },
+          {
+            "seconds": 0.038813632,
+            "repetitions": 263,
+            "output_bytes": 1550,
+            "consumed": 410750
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.0018822669990186114,
+          0.0018169549985032063,
+          0.0019711109998752363,
+          0.0015820129992789589,
+          0.001616894998733187,
+          0.0016145609988598153,
+          0.0018577260016172659
+        ],
+        "median_seconds": 0.0018169549985032063,
+        "min_seconds": 0.0015820129992789589,
+        "max_seconds": 0.0019711109998752363
+      }
+    },
+    {
+      "name": "hierarchy_64",
+      "family": "hierarchy_repeated_leaf",
+      "size": 64,
+      "top": "hierarchy_64/hierarchy_64.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "hierarchy_64/hierarchy_64.bdf": "36c51700e108732e03f1e82331ac27df96190ee2e6161cab7326e39b13ffc631",
+        "hierarchy_64/leaf.bdf": "7d4a5e0c27c78f83fdd5e520e0df0ed5a1f2716700d3c6a97d620af74722bfa6"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "c9bb97d4bf2b5cfbf60b2f1ed3468709deb0dbe5108352655a0277d8845a2bd2",
+        "output_bytes": 5816,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.0005326009199999999,
+          0.00047351390666666666,
+          0.0004998431333333333,
+          0.00047824661333333333,
+          0.0005037826266666666,
+          0.0005033387733333333,
+          0.00054018788
+        ],
+        "median_seconds": 0.0005033387733333333,
+        "min_seconds": 0.00047351390666666666,
+        "max_seconds": 0.00054018788,
+        "raw_batches": [
+          {
+            "seconds": 0.039945069,
+            "repetitions": 75,
+            "output_bytes": 5816,
+            "consumed": 447832
+          },
+          {
+            "seconds": 0.035513543,
+            "repetitions": 75,
+            "output_bytes": 5816,
+            "consumed": 447832
+          },
+          {
+            "seconds": 0.037488235,
+            "repetitions": 75,
+            "output_bytes": 5816,
+            "consumed": 447832
+          },
+          {
+            "seconds": 0.035868496,
+            "repetitions": 75,
+            "output_bytes": 5816,
+            "consumed": 447832
+          },
+          {
+            "seconds": 0.037783697,
+            "repetitions": 75,
+            "output_bytes": 5816,
+            "consumed": 447832
+          },
+          {
+            "seconds": 0.037750408,
+            "repetitions": 75,
+            "output_bytes": 5816,
+            "consumed": 447832
+          },
+          {
+            "seconds": 0.040514091,
+            "repetitions": 75,
+            "output_bytes": 5816,
+            "consumed": 447832
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.002124586000718409,
+          0.002120103999914136,
+          0.002323434000572888,
+          0.0023598350016982295,
+          0.002219617999799084,
+          0.0025588669996068347,
+          0.00250734000292141
+        ],
+        "median_seconds": 0.002323434000572888,
+        "min_seconds": 0.002120103999914136,
+        "max_seconds": 0.0025588669996068347
+      }
+    },
+    {
+      "name": "hierarchy_256",
+      "family": "hierarchy_repeated_leaf",
+      "size": 256,
+      "top": "hierarchy_256/hierarchy_256.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "hierarchy_256/hierarchy_256.bdf": "e002ab3b7e6dc024afad3d3a77d54b4843842a8259c31a1009a77b578ff3b3e1",
+        "hierarchy_256/leaf.bdf": "7d4a5e0c27c78f83fdd5e520e0df0ed5a1f2716700d3c6a97d620af74722bfa6"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "44a18e812bf2e9cde923c59beffb5e0dbb97e98e5de4713de9d63647c68f1ef1",
+        "output_bytes": 23445,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.0017846023333333335,
+          0.0016948773333333334,
+          0.0016503167916666667,
+          0.0016490828333333334,
+          0.0017699699583333334,
+          0.001673526125,
+          0.0017245055
+        ],
+        "median_seconds": 0.0016948773333333334,
+        "min_seconds": 0.0016490828333333334,
+        "max_seconds": 0.0017846023333333335,
+        "raw_batches": [
+          {
+            "seconds": 0.042830456,
+            "repetitions": 24,
+            "output_bytes": 23445,
+            "consumed": 609570
+          },
+          {
+            "seconds": 0.040677056,
+            "repetitions": 24,
+            "output_bytes": 23445,
+            "consumed": 609570
+          },
+          {
+            "seconds": 0.039607603,
+            "repetitions": 24,
+            "output_bytes": 23445,
+            "consumed": 609570
+          },
+          {
+            "seconds": 0.039577988,
+            "repetitions": 24,
+            "output_bytes": 23445,
+            "consumed": 609570
+          },
+          {
+            "seconds": 0.042479279,
+            "repetitions": 24,
+            "output_bytes": 23445,
+            "consumed": 609570
+          },
+          {
+            "seconds": 0.040164627,
+            "repetitions": 24,
+            "output_bytes": 23445,
+            "consumed": 609570
+          },
+          {
+            "seconds": 0.041388132,
+            "repetitions": 24,
+            "output_bytes": 23445,
+            "consumed": 609570
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.00648222000017995,
+          0.004073136999068083,
+          0.004275720999430632,
+          0.004679826997744385,
+          0.004441979999683099,
+          0.004425447001267457,
+          0.0054213190014706925
+        ],
+        "median_seconds": 0.004441979999683099,
+        "min_seconds": 0.004073136999068083,
+        "max_seconds": 0.00648222000017995
+      }
+    },
+    {
+      "name": "bus_contacts_64",
+      "family": "bus_chain_contacts_32bit",
+      "size": 64,
+      "top": "bus_contacts_64/bus_contacts_64.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "bus_contacts_64/bus_contacts_64.bdf": "bc7ad1a026fd8e539e2ef8016b4e19f035df0b12b4f1a823a01bb90d03ada5b5"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "c53e590ffe02f7bf9605e4ce6e51c6a8d3e8ea2f628781f092be2c5f4a7e2c07",
+        "output_bytes": 797,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          7.31787495527728e-05,
+          7.050213237924866e-05,
+          6.214725223613596e-05,
+          7.032980858676208e-05,
+          6.45535259391771e-05,
+          5.775234347048301e-05,
+          5.9518211091234345e-05
+        ],
+        "median_seconds": 6.45535259391771e-05,
+        "min_seconds": 5.775234347048301e-05,
+        "max_seconds": 7.31787495527728e-05,
+        "raw_batches": [
+          {
+            "seconds": 0.040906921,
+            "repetitions": 559,
+            "output_bytes": 797,
+            "consumed": 447117
+          },
+          {
+            "seconds": 0.039410692,
+            "repetitions": 559,
+            "output_bytes": 797,
+            "consumed": 447117
+          },
+          {
+            "seconds": 0.034740314,
+            "repetitions": 559,
+            "output_bytes": 797,
+            "consumed": 447117
+          },
+          {
+            "seconds": 0.039314363,
+            "repetitions": 559,
+            "output_bytes": 797,
+            "consumed": 447117
+          },
+          {
+            "seconds": 0.036085421,
+            "repetitions": 559,
+            "output_bytes": 797,
+            "consumed": 447117
+          },
+          {
+            "seconds": 0.03228356,
+            "repetitions": 559,
+            "output_bytes": 797,
+            "consumed": 447117
+          },
+          {
+            "seconds": 0.03327068,
+            "repetitions": 559,
+            "output_bytes": 797,
+            "consumed": 447117
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.0014248570005293004,
+          0.002360309998039156,
+          0.003477674999885494,
+          0.0017195079999510199,
+          0.001731971999106463,
+          0.0017254070007766131,
+          0.001586128997587366
+        ],
+        "median_seconds": 0.0017254070007766131,
+        "min_seconds": 0.0014248570005293004,
+        "max_seconds": 0.003477674999885494
+      }
+    },
+    {
+      "name": "dense_early_hit_64",
+      "family": "dense_bus_scalar_early_hit",
+      "size": 64,
+      "top": "dense_early_hit_64/dense_early_hit_64.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "dense_early_hit_64/dense_early_hit_64.bdf": "15ce40ddbd030d80ff16aae0fec952f40f9e1d4042577b176db5f7f45b7aec3c"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "7e612e59a1dcb5532ac227dcbe95292036e8dbe2df188f4fa4b66228c797e3c7",
+        "output_bytes": 2431,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.00019297344660194175,
+          0.0002153651796116505,
+          0.00027258753883495145,
+          0.00021881615533980584,
+          0.00021272957281553398,
+          0.00021651347572815535,
+          0.00019066858252427183
+        ],
+        "median_seconds": 0.0002153651796116505,
+        "min_seconds": 0.00019066858252427183,
+        "max_seconds": 0.00027258753883495145,
+        "raw_batches": [
+          {
+            "seconds": 0.03975253,
+            "repetitions": 206,
+            "output_bytes": 2431,
+            "consumed": 505648
+          },
+          {
+            "seconds": 0.044365227,
+            "repetitions": 206,
+            "output_bytes": 2431,
+            "consumed": 505648
+          },
+          {
+            "seconds": 0.056153033,
+            "repetitions": 206,
+            "output_bytes": 2431,
+            "consumed": 505648
+          },
+          {
+            "seconds": 0.045076128,
+            "repetitions": 206,
+            "output_bytes": 2431,
+            "consumed": 505648
+          },
+          {
+            "seconds": 0.043822292,
+            "repetitions": 206,
+            "output_bytes": 2431,
+            "consumed": 505648
+          },
+          {
+            "seconds": 0.044601776,
+            "repetitions": 206,
+            "output_bytes": 2431,
+            "consumed": 505648
+          },
+          {
+            "seconds": 0.039277728,
+            "repetitions": 206,
+            "output_bytes": 2431,
+            "consumed": 505648
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.0020880109987047035,
+          0.0019796779997705016,
+          0.002278026000567479,
+          0.0021132590009074192,
+          0.0018018420014414005,
+          0.0017256669998459984,
+          0.0017210410005645826
+        ],
+        "median_seconds": 0.0019796779997705016,
+        "min_seconds": 0.0017210410005645826,
+        "max_seconds": 0.002278026000567479
+      }
+    },
+    {
+      "name": "bus_contacts_256",
+      "family": "bus_chain_contacts_32bit",
+      "size": 256,
+      "top": "bus_contacts_256/bus_contacts_256.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "bus_contacts_256/bus_contacts_256.bdf": "e82aef3a68c31f8fc00bf7da0957b6d225f9537554cfb6609878496dcc037950"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "d03c1a9156a47c370e9931f1afca518923dee9a783112e839236acf151c54f38",
+        "output_bytes": 798,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.00017257889583333335,
+          0.00018272953125,
+          0.00015256189583333333,
+          0.00021620201041666666,
+          0.00015618086458333332,
+          0.0002112074375,
+          0.00020156766666666666
+        ],
+        "median_seconds": 0.00018272953125,
+        "min_seconds": 0.00015256189583333333,
+        "max_seconds": 0.00021620201041666666,
+        "raw_batches": [
+          {
+            "seconds": 0.016567574,
+            "repetitions": 96,
+            "output_bytes": 798,
+            "consumed": 78204
+          },
+          {
+            "seconds": 0.017542035,
+            "repetitions": 96,
+            "output_bytes": 798,
+            "consumed": 78204
+          },
+          {
+            "seconds": 0.014645942,
+            "repetitions": 96,
+            "output_bytes": 798,
+            "consumed": 78204
+          },
+          {
+            "seconds": 0.020755393,
+            "repetitions": 96,
+            "output_bytes": 798,
+            "consumed": 78204
+          },
+          {
+            "seconds": 0.014993363,
+            "repetitions": 96,
+            "output_bytes": 798,
+            "consumed": 78204
+          },
+          {
+            "seconds": 0.020275914,
+            "repetitions": 96,
+            "output_bytes": 798,
+            "consumed": 78204
+          },
+          {
+            "seconds": 0.019350496,
+            "repetitions": 96,
+            "output_bytes": 798,
+            "consumed": 78204
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.001879228999314364,
+          0.0017605100001674145,
+          0.0018065190015477128,
+          0.0017833839992817957,
+          0.0020011209999211133,
+          0.0017871599993668497,
+          0.00200626800142345
+        ],
+        "median_seconds": 0.0018065190015477128,
+        "min_seconds": 0.0017605100001674145,
+        "max_seconds": 0.00200626800142345
+      }
+    },
+    {
+      "name": "dense_early_hit_256",
+      "family": "dense_bus_scalar_early_hit",
+      "size": 256,
+      "top": "dense_early_hit_256/dense_early_hit_256.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "dense_early_hit_256/dense_early_hit_256.bdf": "5a9858f2a9c2a5437f3570405411320b1b203b8d97d35badb6b76668f6ee6114"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "654a7ca39abf5b96207a6baa74e64435dbe5be3fb8e994b38d55d1a68e8ab743",
+        "output_bytes": 9848,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.0010006087142857144,
+          0.0010558392571428572,
+          0.0009545473714285714,
+          0.0011510837999999998,
+          0.0009366688571428571,
+          0.001252514742857143,
+          0.0009235591714285715
+        ],
+        "median_seconds": 0.0010006087142857144,
+        "min_seconds": 0.0009235591714285715,
+        "max_seconds": 0.001252514742857143,
+        "raw_batches": [
+          {
+            "seconds": 0.035021305,
+            "repetitions": 35,
+            "output_bytes": 9848,
+            "consumed": 364376
+          },
+          {
+            "seconds": 0.036954374,
+            "repetitions": 35,
+            "output_bytes": 9848,
+            "consumed": 364376
+          },
+          {
+            "seconds": 0.033409158,
+            "repetitions": 35,
+            "output_bytes": 9848,
+            "consumed": 364376
+          },
+          {
+            "seconds": 0.040287933,
+            "repetitions": 35,
+            "output_bytes": 9848,
+            "consumed": 364376
+          },
+          {
+            "seconds": 0.03278341,
+            "repetitions": 35,
+            "output_bytes": 9848,
+            "consumed": 364376
+          },
+          {
+            "seconds": 0.043838016,
+            "repetitions": 35,
+            "output_bytes": 9848,
+            "consumed": 364376
+          },
+          {
+            "seconds": 0.032324571,
+            "repetitions": 35,
+            "output_bytes": 9848,
+            "consumed": 364376
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.003067620000365423,
+          0.002688090997253312,
+          0.002505366999685066,
+          0.002771276002022205,
+          0.00351102500280831,
+          0.002701460998650873,
+          0.002615812001749873
+        ],
+        "median_seconds": 0.002701460998650873,
+        "min_seconds": 0.002505366999685066,
+        "max_seconds": 0.00351102500280831
+      }
+    },
+    {
+      "name": "bus_contacts_1024",
+      "family": "bus_chain_contacts_32bit",
+      "size": 1024,
+      "top": "bus_contacts_1024/bus_contacts_1024.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "bus_contacts_1024/bus_contacts_1024.bdf": "517bb47b40147de2d0bec612896b59d122dbe6e0cbcd909a17d31f1bef709d8f"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "5e06a97c68793e3077f6e9866f902a52ed3a2e2ec34ea2d40521a69b524411da",
+        "output_bytes": 799,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.000574394072463768,
+          0.0005182514782608696,
+          0.000537559695652174,
+          0.0005196802898550725,
+          0.0005379578405797102,
+          0.0004934737391304348,
+          0.0005789159275362319
+        ],
+        "median_seconds": 0.000537559695652174,
+        "min_seconds": 0.0004934737391304348,
+        "max_seconds": 0.0005789159275362319,
+        "raw_batches": [
+          {
+            "seconds": 0.039633191,
+            "repetitions": 69,
+            "output_bytes": 799,
+            "consumed": 56729
+          },
+          {
+            "seconds": 0.035759352,
+            "repetitions": 69,
+            "output_bytes": 799,
+            "consumed": 56729
+          },
+          {
+            "seconds": 0.037091619,
+            "repetitions": 69,
+            "output_bytes": 799,
+            "consumed": 56729
+          },
+          {
+            "seconds": 0.03585794,
+            "repetitions": 69,
+            "output_bytes": 799,
+            "consumed": 56729
+          },
+          {
+            "seconds": 0.037119091,
+            "repetitions": 69,
+            "output_bytes": 799,
+            "consumed": 56729
+          },
+          {
+            "seconds": 0.034049688,
+            "repetitions": 69,
+            "output_bytes": 799,
+            "consumed": 56729
+          },
+          {
+            "seconds": 0.039945199,
+            "repetitions": 69,
+            "output_bytes": 799,
+            "consumed": 56729
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.002587308998045046,
+          0.002755796998826554,
+          0.0023313060009968467,
+          0.0032328679990314413,
+          0.0024000189987418707,
+          0.002262168000015663,
+          0.0025104549968091305
+        ],
+        "median_seconds": 0.0025104549968091305,
+        "min_seconds": 0.002262168000015663,
+        "max_seconds": 0.0032328679990314413
+      }
+    },
+    {
+      "name": "dense_early_hit_1024",
+      "family": "dense_bus_scalar_early_hit",
+      "size": 1024,
+      "top": "dense_early_hit_1024/dense_early_hit_1024.bdf",
+      "expected": "Every output equals A",
+      "files": {
+        "dense_early_hit_1024/dense_early_hit_1024.bdf": "e5717fa58e792cd5f3dcf0bcc3839d23aba8a583d6a205249b0f25d24cb71fe3"
+      },
+      "smoke": {
+        "exit_code": 0,
+        "deterministic_repeats": 2,
+        "output_sha256": "987f0b6b6eb313f4f49880b8370c397e1023eca1cb87fa166cb6afa69484d009",
+        "output_bytes": 39849,
+        "semantic_equivalence_proven": false
+      },
+      "fresh": {
+        "samples_seconds": [
+          0.0067191138333333325,
+          0.006234619,
+          0.0057843036666666665,
+          0.005892325666666667,
+          0.005786380166666666,
+          0.006668249166666667,
+          0.0057253485000000005
+        ],
+        "median_seconds": 0.005892325666666667,
+        "min_seconds": 0.0057253485000000005,
+        "max_seconds": 0.0067191138333333325,
+        "raw_batches": [
+          {
+            "seconds": 0.040314683,
+            "repetitions": 6,
+            "output_bytes": 39849,
+            "consumed": 318792
+          },
+          {
+            "seconds": 0.037407714,
+            "repetitions": 6,
+            "output_bytes": 39849,
+            "consumed": 318792
+          },
+          {
+            "seconds": 0.034705822,
+            "repetitions": 6,
+            "output_bytes": 39849,
+            "consumed": 318792
+          },
+          {
+            "seconds": 0.035353954,
+            "repetitions": 6,
+            "output_bytes": 39849,
+            "consumed": 318792
+          },
+          {
+            "seconds": 0.034718281,
+            "repetitions": 6,
+            "output_bytes": 39849,
+            "consumed": 318792
+          },
+          {
+            "seconds": 0.040009495,
+            "repetitions": 6,
+            "output_bytes": 39849,
+            "consumed": 318792
+          },
+          {
+            "seconds": 0.034352091,
+            "repetitions": 6,
+            "output_bytes": 39849,
+            "consumed": 318792
+          }
+        ]
+      },
+      "cli": {
+        "samples_seconds": [
+          0.008429450001131045,
+          0.010168597997108009,
+          0.008340156000485877,
+          0.010086655001941836,
+          0.010063108999020187,
+          0.008763350997469388,
+          0.008365614998183446
+        ],
+        "median_seconds": 0.008763350997469388,
+        "min_seconds": 0.008340156000485877,
+        "max_seconds": 0.010168597997108009
+      }
+    }
+  ]
+}

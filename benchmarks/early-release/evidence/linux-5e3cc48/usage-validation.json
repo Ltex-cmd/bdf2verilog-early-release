@@ -1,0 +1,108 @@
+{
+  "checks": [
+    {
+      "name": "inspect minimal",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout_sha256": "41a90013ce0eeb4833a460e29244f0206126532df0613841afdf5622a9526b82",
+      "stderr": ""
+    },
+    {
+      "name": "verilog explicit module",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout_sha256": "6fb9a9aa5a62a331d5b2cdea875b3d007418a6d545347a74729dcdc7040eed12",
+      "stderr": ""
+    },
+    {
+      "name": "CLI missing arguments",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "Usage: bdf-tool inspect FILE.bdf\n       bdf-tool verilog FILE.bdf [MODULE_NAME] [--library DIRECTORY ...]\n"
+    },
+    {
+      "name": "unknown command",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "error: unknown command: unknown\n"
+    },
+    {
+      "name": "missing library argument",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "error: --library requires a directory\n"
+    },
+    {
+      "name": "benchmark memory",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout_sha256": "6d7527494aaad1aa3a151f25c16632601d22c85d4622870c412f798e769902ba",
+      "stderr": "",
+      "writes_output_file": false
+    },
+    {
+      "name": "benchmark write",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout_sha256": "5925e53905a4013e69117f224313f2061fb1e48abe8d77b44a3d3e7ebdf0d9a2",
+      "stderr": "",
+      "writes_output_file": true
+    },
+    {
+      "name": "reference for benchmark output",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout_sha256": "4475b51de9b0da2210fb3ae57f3caf827ed3d84ab13d86b2fe1b6c44957d17f4",
+      "stderr": ""
+    },
+    {
+      "name": "flat_128 direct identity statements",
+      "passed": true,
+      "scope": "literal emitted identity assignments only; not general semantic simulation"
+    },
+    {
+      "name": "flat_512 direct identity statements",
+      "passed": true,
+      "scope": "literal emitted identity assignments only; not general semantic simulation"
+    },
+    {
+      "name": "flat_2048 direct identity statements",
+      "passed": true,
+      "scope": "literal emitted identity assignments only; not general semantic simulation"
+    },
+    {
+      "name": "bus_contacts_64 direct identity statements",
+      "passed": true,
+      "scope": "literal emitted identity assignments only; not general semantic simulation"
+    },
+    {
+      "name": "dense_early_hit_64 direct identity statements",
+      "passed": true,
+      "scope": "literal emitted identity assignments only; not general semantic simulation"
+    },
+    {
+      "name": "bus_contacts_256 direct identity statements",
+      "passed": true,
+      "scope": "literal emitted identity assignments only; not general semantic simulation"
+    },
+    {
+      "name": "dense_early_hit_256 direct identity statements",
+      "passed": true,
+      "scope": "literal emitted identity assignments only; not general semantic simulation"
+    },
+    {
+      "name": "bus_contacts_1024 direct identity statements",
+      "passed": true,
+      "scope": "literal emitted identity assignments only; not general semantic simulation"
+    },
+    {
+      "name": "dense_early_hit_1024 direct identity statements",
+      "passed": true,
+      "scope": "literal emitted identity assignments only; not general semantic simulation"
+    }
+  ],
+  "semantic_simulation": "Not performed by this script; use generated check.v with a separate HDL simulator."
+}
