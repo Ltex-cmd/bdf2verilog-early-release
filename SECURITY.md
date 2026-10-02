@@ -2,8 +2,7 @@
 
 ## Scope and support
 
-This is an experimental, vibecoded hobby project. It has no security audit,
-production-safety guarantee or long-term security-support commitment. Report
+This is an experimental, vibecoded hobby project. It provides no production-safety guarantee or long-term security-support commitment. Report
 problems against the latest early release or current `main`; older snapshots
 do not have a separate maintenance branch. No response or fix deadline is promised.
 
